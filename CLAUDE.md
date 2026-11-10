@@ -1,10 +1,10 @@
 # ProjectB (모스 스트라이크, Godot 4.7)
 
-모스 부호로 지원요청을 부르는 2.5D 쿼터뷰 은신 슈터. HTML 프로토타입(`C:\Users\LCW\source\repos\MorseStrike\index.html`)을 Godot로 옮긴 프로젝트이고, 이제 이쪽이 본편이다. 구조·좌표·규칙 요약은 `README.md`에 있다.
+모스 부호로 지원요청을 부르는 2.5D 쿼터뷰 은신 슈터. HTML 프로토타입(MorseStrike `index.html`)을 Godot로 옮긴 프로젝트이고, 이제 이쪽이 본편이다. 구조·좌표·규칙 요약은 `README.md`에 있다. 이 PC의 실제 경로(프로토타입, Godot 실행 파일, 블로그 저장소)는 git에 올리지 않는 `CLAUDE.local.md`에 있다.
 
 ## 실행과 확인
 
-Godot 실행 파일: `C:\Program Files (x86)\Steam\steamapps\common\Godot Engine\godot.windows.opt.tools.64.exe` (4.7.2)
+Godot 4.7.2 에디터 실행 파일을 `godot`로 쓴다.
 
 ```bash
 # 스크립트 로드 오류만 빠르게
@@ -38,4 +38,4 @@ godot --path . -- --autotest
 
 ## 블로그
 
-개발일지는 `F:\Github\Cha-nu`(Astro 블로그)에 `project: project-b`로 올린다. 그 저장소의 `AGENTS.md` 규칙을 따른다: 새 글은 `draft: true`, 수치는 `research/`에서 다시 낼 수 있어야 함, push는 사용자가 요청할 때만. 첫 글: `src/content/posts/project-b-2026-11-10-auto-aim-grid-search.md`, 측정 코드 `research/project-b-nearest/`. `src/content/projects/project-b.md`(프로젝트 소개 페이지)는 아직 없다.
+개발일지는 블로그 저장소(`Cha-nu.github.io`, Astro)에 `project: project-b`로 올린다. 그 저장소의 `AGENTS.md` 규칙을 따른다: 새 글은 `draft: true`, 수치는 `research/`에서 다시 낼 수 있어야 함, push는 사용자가 요청할 때만. 첫 글: `src/content/posts/project-b-2026-11-10-auto-aim-grid-search.md`, 측정 코드 `research/project-b-nearest/`. `src/content/projects/project-b.md`(프로젝트 소개 페이지)는 아직 없다.

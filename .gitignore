@@ -41,6 +41,7 @@ mono_crash.*.json
 
 # Claude Code local settings
 .claude/settings.local.json
+CLAUDE.local.md
 
 # OS
 .DS_Store
