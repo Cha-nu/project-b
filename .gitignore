@@ -1,0 +1,48 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Godot-specific ignores (3.x leftovers / generated)
+.import/
+export.cfg
+export_credentials.cfg
+*.translation
+
+# Mono / C#
+.mono/
+data_*/
+mono_crash.*.json
+
+# Export output
+/build/
+/builds/
+/export/
+*.exe
+*.pck
+*.apk
+*.aab
+*.ipa
+*.dmg
+*.x86_64
+*.arm64
+*.wasm
+
+# Android signing
+*.keystore
+*.jks
+
+# Editor / tooling
+.vscode/
+.idea/
+*.swp
+*~
+*.tmp
+*.log
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
