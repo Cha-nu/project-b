@@ -13,6 +13,7 @@ config_version=5
 config/name="ProjectB"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
+boot_splash/bg_color=Color(0.027, 0.051, 0.086, 1)
 config/icon="res://icon.svg"
 
 [autoload]
@@ -42,3 +43,7 @@ pointing/emulate_touch_from_mouse=true
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality.mobile=2
+anti_aliasing/quality/msaa_3d=1
+environment/defaults/default_clear_color=Color(0.016, 0.031, 0.07, 1)

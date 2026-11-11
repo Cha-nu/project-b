@@ -366,17 +366,19 @@ func _draw_ov() -> void:
 			continue
 		var p: Vector2 = info[0]
 		var m: Dictionary = missions[i]
-		var c: Color = DIFF_COL[m.diff]
+		var locked: bool = i >= Save.d.stage
+		var c: Color = Color(0.55, 0.57, 0.6) if locked else DIFF_COL[m.diff]
 		var on = i == sel
+		var nm: String = "%d. %s" % [i + 1, m.name]
 		var fs = 22 if on else 17
-		var tw = f.get_string_size(m.name, HORIZONTAL_ALIGNMENT_LEFT, -1, fs).x
+		var tw = f.get_string_size(nm, HORIZONTAL_ALIGNMENT_LEFT, -1, fs).x
 		var bw = tw + (34 if on else 26)
 		var bh = 40.0 if on else 30.0
 		var r = Rect2(p + Vector2(-bw / 2, -bh - 20), Vector2(bw, bh))
 		var sb = UI.pill(Color(0.03, 0.06, 0.1, 0.9) if not on else Color(0.07, 0.1, 0.16, 0.95), c if on else Color(1, 1, 1, 0.15), 10, 4)
 		ov.draw_style_box(sb, r)
 		ov.draw_circle(r.position + Vector2(14 if on else 11, bh / 2), 5 if on else 4, c)
-		ov.draw_string(f, r.position + Vector2(24 if on else 19, bh / 2 + fs * 0.36), m.name, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, UI.TEXT if on else Color(0.85, 0.88, 0.92))
+		ov.draw_string(f, r.position + Vector2(24 if on else 19, bh / 2 + fs * 0.36), nm, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, UI.TEXT if on else Color(0.85, 0.88, 0.92, 0.45 if locked else 1.0))
 		ov.draw_line(p + Vector2(0, -20), p, Color(c, 0.8), 2)
 		if on:
 			## 조준 괄호

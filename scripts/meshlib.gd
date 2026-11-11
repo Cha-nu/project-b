@@ -145,6 +145,32 @@ static func beam(parent: Node3D, a: Vector3, b: Vector3, t: float, c, m: Materia
 	return mi
 
 
+static var _outline_mat: StandardMaterial3D
+static var _outlined := {}
+
+
+## 뒤집은 껍질 방식 외곽선. 캐릭터가 바닥·건물과 섞이지 않고 또렷하게 떠 보인다
+static func outline(root: Node, width := 0.011) -> void:
+	if _outline_mat == null:
+		_outline_mat = StandardMaterial3D.new()
+		_outline_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		_outline_mat.albedo_color = Color(0.035, 0.04, 0.06)
+		_outline_mat.cull_mode = BaseMaterial3D.CULL_FRONT
+		_outline_mat.grow = true
+		_outline_mat.grow_amount = width
+	for c in root.get_children():
+		if c is MeshInstance3D and c.material_override is StandardMaterial3D:
+			var m: StandardMaterial3D = c.material_override
+			if m.transparency == BaseMaterial3D.TRANSPARENCY_DISABLED and m.shading_mode != BaseMaterial3D.SHADING_MODE_UNSHADED and m.next_pass == null:
+				var id := m.get_instance_id()
+				if not _outlined.has(id):
+					var d: StandardMaterial3D = m.duplicate()
+					d.next_pass = _outline_mat
+					_outlined[id] = d
+				c.material_override = _outlined[id]
+		outline(c, width)
+
+
 ## 그림자를 드리우지 않게 (바닥 장식·투명 효과)
 static func no_shadow(mi: GeometryInstance3D) -> GeometryInstance3D:
 	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
